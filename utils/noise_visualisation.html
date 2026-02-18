@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Radial / Tangential Orientation Visualiser</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 0 0 12px 0;
+    }
+    .layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .panel {
+      background: #111827;
+      padding: 12px 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    #canvas-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    canvas {
+      border-radius: 4px;
+      background: #000;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 260px;
+      max-width: 360px;
+    }
+    .control-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .control-row label {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .control-row input[type="range"] {
+      width: 100%;
+    }
+    .control-row input[type="number"],
+    .control-row input[type="text"],
+    .control-row input[type="file"] {
+      width: 100%;
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 1px solid #374151;
+      background: #020617;
+      color: #e5e7eb;
+    }
+    .download-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      align-items: center;
+    }
+    button {
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      background: #60a5fa;
+      color: #020617;
+      font-weight: 600;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    button:hover {
+      filter: brightness(1.1);
+    }
+    .hint {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Radial / Tangential Orientation Visualiser</h1>
+  <div class="layout">
+    <div id="canvas-panel" class="panel">
+      <canvas id="noiseCanvas" width="512" height="512"></canvas>
+    </div>
+    <div class="panel">
+      <div class="controls">
+        <div class="control-row">
+          <label>
+            <span>Upload image</span>
+          </label>
+          <input id="fileInput" type="file" accept="image/*">
+          <div class="hint">Orientation is computed around the image centre.</div>
+        </div>
+
+        <div class="control-row">
+          <label>
+            <span>Canvas size (n × n)</span>
+            <span id="sizeVal"></span>
+          </label>
+          <input id="size" type="number" min="128" max="1024" step="64" value="512">
+          <div class="hint">Resolution of the working square image.</div>
+        </div>
+
+        <div class="control-row">
+          <label>
+            <span>Zoom</span>
+            <span id="zoomVal"></span>
+          </label>
+          <input id="zoom" type="range" min="1" max="4" step="0.05" value="1">
+          <div class="hint">1 = full image, higher = zoom into centre.</div>
+        </div>
+
+        <div class="control-row">
+          <label>
+            <span>Pre-Sobel blur σ</span>
+            <span id="blurVal"></span>
+          </label>
+          <input id="blurSigma" type="range" min="0" max="5" step="0.1" value="1.5">
+          <div class="hint">Blur before Sobel for a smooth orientation field.</div>
+        </div>
+
+        <div class="control-row">
+          <label>
+            <span>Final blur σ</span>
+            <span id="finalBlurVal"></span>
+          </label>
+          <input id="finalBlurSigma" type="range" min="0" max="5" step="0.1" value="0">
+          <div class="hint">Blur applied after radial/tangential mixing.</div>
+        </div>
+
+        <div class="control-row">
+          <label>
+            <span>Brightness</span>
+            <span id="brightVal"></span>
+          </label>
+          <input id="brightness" type="range" min="-0.5" max="0.5" step="0.01" value="0">
+        </div>
+
+        <div class="control-row">
+          <label>
+            <span>Contrast</span>
+            <span id="contrastVal"></span>
+          </label>
+          <input id="contrast" type="range" min="0" max="3" step="0.05" value="1">
+          <div class="hint">Scales distance from mid-grey (after grayscale conversion).</div>
+        </div>
+
+        <div class="control-row">
+          <label>
+            <span>Orientation bias</span>
+            <span id="orientVal"></span>
+          </label>
+          <input id="orientation" type="range" min="-1" max="1" step="0.01" value="0">
+          <div class="hint">−1: tangential; 0: original; +1: radial.</div>
+        </div>
+
+        <div class="control-row">
+          <label for="filename">File name</label>
+          <div class="download-row">
+            <input id="filename" type="text" value="orient_image">
+            <button id="downloadBtn">Download PNG</button>
+          </div>
+          <div class="hint">Saved as [file name].png</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('noiseCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const fileInput = document.getElementById('fileInput');
+    const sizeInput = document.getElementById('size');
+    const zoomSlider = document.getElementById('zoom');
+    const blurSlider = document.getElementById('blurSigma');
+    const finalBlurSlider = document.getElementById('finalBlurSigma');
+    const brightnessSlider = document.getElementById('brightness');
+    const contrastSlider = document.getElementById('contrast');
+    const orientationSlider = document.getElementById('orientation');
+    const filenameInput = document.getElementById('filename');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    const sizeVal = document.getElementById('sizeVal');
+    const zoomVal = document.getElementById('zoomVal');
+    const blurVal = document.getElementById('blurVal');
+    const finalBlurVal = document.getElementById('finalBlurVal');
+    const brightVal = document.getElementById('brightVal');
+    const contrastVal = document.getElementById('contrastVal');
+    const orientVal = document.getElementById('orientVal');
+
+    const ORI_SMOOTH_SIGMA = 1.0; // smoothing of orientation weights
+
+    let SIZE = 512;
+    let baseImg = null; // grayscale, 0..1
+    let I = null;       // blurred, BC-adjusted 0..1
+    let Ir = null;      // radial-biased image
+    let It = null;      // tangential-biased image
+
+    let imgLoaded = false;
+    let fullCanvas = null;
+    let fullCtx = null;
+    let fullW = 0;
+    let fullH = 0;
+
+    function clamp01(x) {
+      return x < 0 ? 0 : (x > 1 ? 1 : x);
+    }
+
+    function initSizeFromInput() {
+      let n = parseInt(sizeInput.value || "512", 10);
+      if (!Number.isFinite(n)) n = 512;
+      if (n < 128) n = 128;
+      if (n > 1024) n = 1024;
+      sizeInput.value = n;
+      SIZE = n;
+      sizeVal.textContent = n + " × " + n;
+
+      canvas.width = SIZE;
+      canvas.height = SIZE;
+
+      baseImg = new Float32Array(SIZE * SIZE);
+      I = new Float32Array(SIZE * SIZE);
+      Ir = new Float32Array(SIZE * SIZE);
+      It = new Float32Array(SIZE * SIZE);
+    }
+
+    function gaussianBlurArray(src, width, height, sigma) {
+      if (sigma <= 0.001) {
+        return src.slice();
+      }
+
+      const radius = Math.max(1, Math.ceil(sigma * 3));
+      const size = radius * 2 + 1;
+      const kernel = new Float32Array(size);
+      let sum = 0;
+
+      for (let i = -radius; i <= radius; i++) {
+        const v = Math.exp(-0.5 * (i / sigma) * (i / sigma));
+        kernel[i + radius] = v;
+        sum += v;
+      }
+      for (let i = 0; i < size; i++) {
+        kernel[i] /= sum;
+      }
+
+      const tmp = new Float32Array(width * height);
+      const dst = new Float32Array(width * height);
+
+      // Horizontal
+      for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+          let acc = 0;
+          for (let k = -radius; k <= radius; k++) {
+            let xx = x + k;
+            if (xx < 0) xx = 0;
+            if (xx >= width) xx = width - 1;
+            acc += src[y * width + xx] * kernel[k + radius];
+          }
+          tmp[y * width + x] = acc;
+        }
+      }
+
+      // Vertical
+      for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+          let acc = 0;
+          for (let k = -radius; k <= radius; k++) {
+            let yy = y + k;
+            if (yy < 0) yy = 0;
+            if (yy >= height) yy = height - 1;
+            acc += tmp[yy * width + x] * kernel[k + radius];
+          }
+          dst[y * width + x] = acc;
+        }
+      }
+
+      return dst;
+    }
+
+    function loadImageFile(file) {
+      const img = new Image();
+      img.onload = () => {
+        fullW = img.naturalWidth;
+        fullH = img.naturalHeight;
+
+        fullCanvas = document.createElement('canvas');
+        fullCanvas.width = fullW;
+        fullCanvas.height = fullH;
+        fullCtx = fullCanvas.getContext('2d');
+        fullCtx.drawImage(img, 0, 0);
+
+        imgLoaded = true;
+        updateImage();
+      };
+      img.onerror = () => {
+        imgLoaded = false;
+      };
+      const url = URL.createObjectURL(file);
+      img.src = url;
+    }
+
+    // Build baseImg from current zoomed centre crop (grayscale)
+    function buildGrayscaleFromZoom() {
+      if (!imgLoaded || !fullCanvas) return false;
+
+      const zoom = parseFloat(zoomSlider.value);
+      const minSide = Math.min(fullW, fullH);
+      const cropSize = minSide / zoom;
+
+      const cx = fullW / 2;
+      const cy = fullH / 2;
+      let sx = cx - cropSize / 2;
+      let sy = cy - cropSize / 2;
+
+      if (sx < 0) sx = 0;
+      if (sy < 0) sy = 0;
+      if (sx + cropSize > fullW) sx = fullW - cropSize;
+      if (sy + cropSize > fullH) sy = fullH - cropSize;
+
+      ctx.clearRect(0, 0, SIZE, SIZE);
+      ctx.drawImage(fullCanvas, sx, sy, cropSize, cropSize, 0, 0, SIZE, SIZE);
+
+      const imgData = ctx.getImageData(0, 0, SIZE, SIZE);
+      const data = imgData.data;
+
+      const N = SIZE * SIZE;
+      for (let i = 0; i < N; i++) {
+        const idx4 = i * 4;
+        const r = data[idx4];
+        const g = data[idx4 + 1];
+        const b = data[idx4 + 2];
+        // standard luminance -> 0..1
+        const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+        baseImg[i] = lum;
+      }
+      return true;
+    }
+
+    function applyBrightnessContrastAndBlur(brightness, contrast, sigma) {
+      const N = SIZE * SIZE;
+      let arr = new Float32Array(N);
+
+      for (let i = 0; i < N; i++) {
+        let v = baseImg[i];
+        v = (v - 0.5) * contrast + 0.5 + brightness;
+        arr[i] = clamp01(v);
+      }
+
+      arr = gaussianBlurArray(arr, SIZE, SIZE, sigma);
+      I = arr;
+    }
+
+    function computeRadialTangential() {
+      const N = SIZE * SIZE;
+      const gx = new Float32Array(N);
+      const gy = new Float32Array(N);
+      const WrField = new Float32Array(N); // radial preference 0..1
+
+      function sample(ix, iy) {
+        if (ix < 0) ix = 0; else if (ix >= SIZE) ix = SIZE - 1;
+        if (iy < 0) iy = 0; else if (iy >= SIZE) iy = SIZE - 1;
+        return I[iy * SIZE + ix];
+      }
+
+      // Sobel on I
+      for (let y = 0; y < SIZE; y++) {
+        for (let x = 0; x < SIZE; x++) {
+          const idx = y * SIZE + x;
+
+          const v00 = sample(x - 1, y - 1);
+          const v10 = sample(x,     y - 1);
+          const v20 = sample(x + 1, y - 1);
+          const v01 = sample(x - 1, y);
+          const v21 = sample(x + 1, y);
+          const v02 = sample(x - 1, y + 1);
+          const v12 = sample(x,     y + 1);
+          const v22 = sample(x + 1, y + 1);
+
+          const gxVal = -v00 + v20 - 2 * v01 + 2 * v21 - v02 + v22;
+          const gyVal = -v00 - 2 * v10 - v20 + v02 + 2 * v12 + v22;
+
+          gx[idx] = gxVal;
+          gy[idx] = gyVal;
+        }
+      }
+
+      const cx = (SIZE - 1) / 2;
+      const cy = (SIZE - 1) / 2;
+
+      // Raw radial preference
+      for (let y = 0; y < SIZE; y++) {
+        for (let x = 0; x < SIZE; x++) {
+          const idx = y * SIZE + x;
+          const dx = x - cx;
+          const dy = y - cy;
+          const len = Math.hypot(dx, dy);
+
+          let Wr;
+
+          if (len < 1e-3) {
+            Wr = 0.5;
+          } else {
+            const rx = dx / len;
+            const ry = dy / len;
+            const tx = -ry;
+            const ty = rx;
+
+            const gxi = gx[idx];
+            const gyi = gy[idx];
+
+            const gr = gxi * rx + gyi * ry;
+            const gt = gxi * tx + gyi * ty;
+
+            const mag2 = gxi * gxi + gyi * gyi;
+            if (mag2 > 1e-12) {
+              // cos^2(theta) between gradient and radial direction
+              const cos = gr / Math.sqrt(mag2);
+              const cos2 = cos * cos;
+              Wr = clamp01(cos2);  // 1 = radial, 0 = tangential
+            } else {
+              Wr = 0.5;
+            }
+          }
+
+          WrField[idx] = Wr;
+        }
+      }
+
+      // Smooth orientation preference a bit
+      const WrSmooth = gaussianBlurArray(WrField, SIZE, SIZE, ORI_SMOOTH_SIGMA);
+
+      // Build Ir, It so Ir + It = I pointwise
+      for (let i = 0; i < N; i++) {
+        const Wr = clamp01(WrSmooth[i]);
+        const Wt = 1.0 - Wr;
+        const val = I[i];
+        Ir[i] = val * Wr;
+        It[i] = val * Wt;
+      }
+    }
+
+    function render() {
+      if (!imgLoaded || !I) {
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, SIZE, SIZE);
+        return;
+      }
+
+      const s = parseFloat(orientationSlider.value); // [-1,1]
+      const finalSigma = parseFloat(finalBlurSlider.value);
+      const N = SIZE * SIZE;
+
+      // First build the mixed image into a float array
+      let outArr = new Float32Array(N);
+
+      for (let i = 0; i < N; i++) {
+        const baseVal = I[i];
+        const radial  = Ir[i];
+        const tang    = It[i];
+
+        let out;
+        if (s >= 0) {
+          const t = s;
+          out = (1 - t) * baseVal + t * radial;
+        } else {
+          const t = -s;
+          out = (1 - t) * baseVal + t * tang;
+        }
+
+        outArr[i] = clamp01(out);
+      }
+
+      // Apply final blur to the mixed image
+      outArr = gaussianBlurArray(outArr, SIZE, SIZE, finalSigma);
+
+      const imgData = ctx.createImageData(SIZE, SIZE);
+      const data = imgData.data;
+
+      for (let i = 0; i < N; i++) {
+        const c = clamp01(outArr[i]);
+        const byte = Math.round(c * 255);
+        const idx4 = i * 4;
+        data[idx4]     = byte;
+        data[idx4 + 1] = byte;
+        data[idx4 + 2] = byte;
+        data[idx4 + 3] = 255;
+      }
+
+      ctx.putImageData(imgData, 0, 0);
+    }
+
+    function updateImage() {
+      if (!imgLoaded) {
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, SIZE, SIZE);
+        return;
+      }
+
+      zoomVal.textContent = zoomSlider.value;
+      blurVal.textContent = parseFloat(blurSlider.value).toFixed(1);
+      finalBlurVal.textContent = parseFloat(finalBlurSlider.value).toFixed(1);
+      brightVal.textContent = parseFloat(brightnessSlider.value).toFixed(2);
+      contrastVal.textContent = parseFloat(contrastSlider.value).toFixed(2);
+      orientVal.textContent = orientationSlider.value;
+
+      const ok = buildGrayscaleFromZoom();
+      if (!ok) return;
+
+      const brightness = parseFloat(brightnessSlider.value);
+      const contrast = parseFloat(contrastSlider.value);
+      const blurSigma = parseFloat(blurSlider.value);
+
+      applyBrightnessContrastAndBlur(brightness, contrast, blurSigma);
+      computeRadialTangential();
+      render();
+    }
+
+    function downloadPNG() {
+      let name = filenameInput.value.trim();
+      if (!name) name = "orient_image";
+      if (!name.toLowerCase().endsWith(".png")) {
+        name = name + ".png";
+      }
+      canvas.toBlob(function (blob) {
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        link.href = url;
+        link.download = name;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }, "image/png");
+    }
+
+    // Event wiring
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        loadImageFile(file);
+      }
+    });
+
+    sizeInput.addEventListener("change", () => {
+      initSizeFromInput();
+      updateImage();
+    });
+
+    zoomSlider.addEventListener("input", updateImage);
+    blurSlider.addEventListener("input", updateImage);
+    brightnessSlider.addEventListener("input", updateImage);
+    contrastSlider.addEventListener("input", updateImage);
+
+    finalBlurSlider.addEventListener("input", () => {
+      finalBlurVal.textContent = parseFloat(finalBlurSlider.value).toFixed(1);
+      render(); // only affects final smoothing
+    });
+
+    orientationSlider.addEventListener("input", () => {
+      orientVal.textContent = orientationSlider.value;
+      render(); // re-mix + final blur only
+    });
+
+    downloadBtn.addEventListener("click", downloadPNG);
+
+    // Initial setup
+    initSizeFromInput();
+    zoomVal.textContent = zoomSlider.value;
+    blurVal.textContent = parseFloat(blurSlider.value).toFixed(1);
+    finalBlurVal.textContent = parseFloat(finalBlurSlider.value).toFixed(1);
+    brightVal.textContent = parseFloat(brightnessSlider.value).toFixed(2);
+    contrastVal.textContent = parseFloat(contrastSlider.value).toFixed(2);
+    orientVal.textContent = orientationSlider.value;
+
+    // Placeholder
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, SIZE, SIZE);
+  </script>
+</body>
+</html>
