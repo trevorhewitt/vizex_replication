@@ -1,0 +1,7 @@
+Feature	Mean absolute error (SD)	Trial number (%)	chi2(1)	p	Participant (%)	Residual (%)
+detail level	1.245	10.1	9.52	.006	1.9	88.0
+radial orientation	0.310	0.00	0.00	1.000	0.00	100.0
+tangential orientation	0.254	0.00	0.00	1.000	0.00	100.0
+brightness	0.422	1.7	1.00	.791	25.1	73.2
+contrast	0.445	0.00	0.00	1.000	5.3	94.7
+composite (all five)	0.535	2.5	0.86	.791	4.8	92.7
