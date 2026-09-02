@@ -1,0 +1,6 @@
+Experiment	Feature	Unstandardised coefficient (b)	Standard error	z-statistic	p (uncorrected)	p (Holm-adjusted)	Random-effect variance	Residual variance	n (trials)	n (participants)
+Experiment 4.1 (drawings)	detail level	0.427464	0.022199	19.256023	1.26E-82	1.26E-82	1.93E-02	0.064122	296	99
+Experiment 4.1 (drawings)	radial orientation	0.753533	0.014673	51.354516	0.00E+00	0.00E+00	4.30E-11	0.010990	296	99
+Experiment 4.1 (drawings)	tangential orientation	0.859217	0.017720	48.489066	0.00E+00	0.00E+00	1.56E-10	0.008976	296	99
+Experiment 4.1 (drawings)	brightness	0.931987	0.037206	25.049457	1.77E-138	5.31E-138	2.23E-03	0.015500	296	99
+Experiment 4.1 (drawings)	contrast	0.840334	0.035239	23.846472	1.10E-125	2.20E-125	4.22E-04	0.003758	296	99

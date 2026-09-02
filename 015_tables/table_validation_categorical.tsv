@@ -1,0 +1,6 @@
+Experiment	Feature	Wald chi-square	df	p (uncorrected)	p (Holm-adjusted)	Random-effect variance	Residual variance	n (trials)	n (participants)
+Experiment 4.1 (drawings)	detail level	719.140559	44	6.76E-123	6.76E-123	2.16E-02	0.039346	296	99
+Experiment 4.1 (drawings)	radial orientation	4049.141971	44	0.00E+00	0.00E+00	1.51E-12	0.007368	296	99
+Experiment 4.1 (drawings)	tangential orientation	3235.236160	44	0.00E+00	0.00E+00	1.66E-04	0.006597	296	99
+Experiment 4.1 (drawings)	brightness	1007.379120	44	2.02E-182	6.07E-182	2.93E-03	0.010217	296	99
+Experiment 4.1 (drawings)	contrast	932.444493	44	7.49E-167	1.50E-166	4.25E-04	0.002543	296	99

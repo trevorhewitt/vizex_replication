@@ -1,0 +1,6 @@
+Experiment	Feature	Mean	Wald chi-square	df	p (uncorrected)	p (Holm-adjusted)	Random-effect variance	Residual variance	Trial-level SD	Trial-level CV (%)	Intraclass correlation coefficient	n (trials)	n (participants)
+Experiment 4.1 (drawings)	detail level	0.160779	130.151961	6	1.19E-25	5.97E-25	2.38E-02	0.034949	0.186948	116.276385	0.405604	1285	99
+Experiment 4.1 (drawings)	radial orientation	0.404979	126.536151	6	6.89E-25	2.76E-24	1.08E-02	0.057817	0.240452	59.373979	0.157607	1285	99
+Experiment 4.1 (drawings)	tangential orientation	0.437302	117.583988	6	5.24E-23	1.05E-22	9.35E-03	0.059029	0.242959	55.558681	0.136720	1285	99
+Experiment 4.1 (drawings)	brightness	0.776986	113.389975	6	3.97E-22	3.97E-22	9.66E-03	0.023215	0.152364	19.609684	0.293799	1285	99
+Experiment 4.1 (drawings)	contrast	0.138053	125.134060	6	1.36E-24	4.08E-24	4.67E-03	0.007302	0.085452	61.897917	0.390262	1285	99
