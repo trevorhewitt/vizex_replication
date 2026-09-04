@@ -1,11 +1,6 @@
-Experiment	Feature	Contrast	Unstandardised coefficient (b)	Standard error	z-statistic	p (uncorrected)	p (Holm-adjusted)	Random-effect variance	Residual variance	Intraclass correlation coefficient	n (trials)	n (participants)
-Experiment 4.1 (drawings)	detail level	Experimental vs Control	0.119920	0.020410	5.875618	4.21E-09	2.53E-08	2.37E-02	0.037686	0.385618	1285	99
-Experiment 4.1 (drawings)	detail level	15 Hz vs 10 Hz	0.070950	0.020935	3.389016	7.01E-04	3.51E-03	3.75E-02	0.043254	0.464525	395	99
-Experiment 4.1 (drawings)	radial orientation	Experimental vs Control	0.239672	0.025666	9.338286	9.79E-21	9.79E-20	1.07E-02	0.059603	0.151960	1285	99
-Experiment 4.1 (drawings)	radial orientation	15 Hz vs 10 Hz	0.001267	0.021404	0.059201	9.53E-01	1.00E+00	6.62E-03	0.045228	0.127638	395	99
-Experiment 4.1 (drawings)	tangential orientation	Experimental vs Control	-0.200433	0.026138	-7.668332	1.74E-14	1.22E-13	9.13E-03	0.061818	0.128677	1285	99
-Experiment 4.1 (drawings)	tangential orientation	15 Hz vs 10 Hz	-0.018679	0.018536	-1.007738	3.14E-01	1.00E+00	4.31E-03	0.033920	0.112682	395	99
-Experiment 4.1 (drawings)	brightness	Experimental vs Control	-0.136102	0.016294	-8.352701	6.67E-17	6.00E-16	9.60E-03	0.024021	0.285448	1285	99
-Experiment 4.1 (drawings)	brightness	15 Hz vs 10 Hz	-0.001190	0.012961	-0.091811	9.27E-01	1.00E+00	1.08E-02	0.016580	0.394920	395	99
-Experiment 4.1 (drawings)	contrast	Experimental vs Control	0.073612	0.009201	8.000478	1.24E-15	9.91E-15	4.65E-03	0.007659	0.377621	1285	99
-Experiment 4.1 (drawings)	contrast	15 Hz vs 10 Hz	0.008644	0.007805	1.107544	2.68E-01	1.00E+00	5.75E-03	0.006011	0.489038	395	99
+Feature	Mean	Chi2	df	p_holm	Trial_SD	Trial_CV%	ICC
+detail level	0.16	130.2	6	< .001	0.19	116.28%	0.406
+radial orientation	0.40	126.5	6	< .001	0.24	59.37%	0.158
+tangential orientation	0.44	117.6	6	< .001	0.24	55.56%	0.137
+brightness	0.78	113.4	6	< .001	0.15	19.61%	0.294
+contrast	0.14	125.1	6	< .001	0.09	61.90%	0.390

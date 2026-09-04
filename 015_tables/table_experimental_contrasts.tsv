@@ -1,0 +1,11 @@
+Feature	Contrast	b	se	z	p_holm	ICC	n
+detail level	Experimental vs Control	0.119920	0.020410	5.875618	< .001	0.386	1285
+detail level	15 Hz vs 10 Hz	0.070950	0.020935	3.389016	.004	0.465	395
+radial orientation	Experimental vs Control	0.239672	0.025666	9.338286	< .001	0.152	1285
+radial orientation	15 Hz vs 10 Hz	0.001267	0.021404	0.059201	1.000	0.128	395
+tangential orientation	Experimental vs Control	-0.200433	0.026138	-7.668332	< .001	0.129	1285
+tangential orientation	15 Hz vs 10 Hz	-0.018679	0.018536	-1.007738	1.000	0.113	395
+brightness	Experimental vs Control	-0.136102	0.016294	-8.352701	< .001	0.285	1285
+brightness	15 Hz vs 10 Hz	-0.001190	0.012961	-0.091811	1.000	0.395	395
+contrast	Experimental vs Control	0.073612	0.009201	8.000478	< .001	0.378	1285
+contrast	15 Hz vs 10 Hz	0.008644	0.007805	1.107544	1.000	0.489	395
