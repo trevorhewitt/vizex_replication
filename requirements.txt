@@ -1,7 +1,12 @@
-numpy
-pandas
-matplotlib
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
 pillow
-scipy
+scipy>=1.10
 scikit-image
-statsmodels
+statsmodels>=0.14
+patsy
+# only for `python rerun.py --notebooks` / `--with-images`
+nbconvert
+nbformat
+ipykernel
