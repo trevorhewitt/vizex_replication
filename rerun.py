@@ -153,6 +153,7 @@ def write_outputs(R: dict):
 
     validation.plot_panels(val["dfs"], FIG_PATH)
     experimental.plot_panels(exp["df"], FIG_PATH)
+    experimental.plot_thesis_composite(exp["df"], FIG_PATH / "fig5.3_BF_thesis_layout.png")
     content.plot(cont["crosstab"], FIG_PATH / "fig5.3_A_content_categories.png")
 
 

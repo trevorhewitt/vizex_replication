@@ -11,6 +11,7 @@ import textwrap
 
 import matplotlib
 matplotlib.use("Agg")
+import matplotlib.lines  # noqa: E402
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -200,6 +201,78 @@ def plot_panels(df: pd.DataFrame, out_dir) -> list:
     plt.close(fig)
     paths.append(p)
     return paths
+
+
+def plot_thesis_composite(df: pd.DataFrame, out_path) -> None:
+    """Figure 5.3 B-F as laid out in the thesis: 3 x 2 grid (B + shared legend,
+    C | D, E | F), y label 'feature value', '80*' marking the control, x label on
+    the bottom row only, grey dividers. Same data drawing as plot_panels()."""
+    levels = list(df["hz_cat"].cat.categories)
+    x_pos = np.arange(len(levels), dtype=float)
+    ticklabels = [_fmt_hz(h) for h in levels[:-1]] + [r"80$^{\bf *}$"]
+    fig = plt.figure(figsize=(8.61, 9.6))
+    # axes rectangles (left, bottom, width, height) in figure fractions
+    cols = (0.105, 0.605)
+    rows = (0.705, 0.385, 0.065)
+    w, h = 0.37, 0.235
+    slots = {"detail": (0, 0), "r_directionality": (0, 1), "theta_directionality": (1, 1),
+             "brightness": (0, 2), "contrast": (1, 2)}
+    for f, (c, r) in slots.items():
+        ax = fig.add_axes((cols[c], rows[r], w, h))
+        rng = np.random.RandomState(42)
+        grouped = df.groupby("condition_hz")[f]
+        means = grouped.mean().reindex(levels).to_numpy(float)
+        sds = np.nan_to_num(grouped.std(ddof=1).reindex(levels).to_numpy(float), nan=0.0)
+        for i, hz in enumerate(levels):
+            vals = df.loc[df["condition_hz"] == hz, f].to_numpy(float)
+            ax.scatter(x_pos[i] + rng.normal(0, JITTER, size=vals.size), vals, s=9,
+                       color="#000000", alpha=0.16, edgecolors="none", zorder=1, clip_on=True)
+        ax.errorbar(x_pos, means, yerr=sds, fmt="none", ecolor=COLOR_MEAN, elinewidth=2.2,
+                    capsize=4, capthick=2.2, zorder=2, clip_on=True)
+        ax.plot(x_pos, means, color=COLOR_MEAN, linewidth=2.8, marker="o", markersize=7,
+                markerfacecolor="white", markeredgewidth=2.0, markeredgecolor=COLOR_MEAN,
+                zorder=3, clip_on=False)
+        bottom, top = ax.get_ylim()
+        if Y_MAX_BY_FEATURE.get(f) is not None:
+            ax.set_ylim(bottom, Y_MAX_BY_FEATURE[f])
+        ax.set_xlim(-0.5, len(levels) - 0.5)
+        ax.set_xticks(x_pos)
+        ax.set_xticklabels(ticklabels, fontsize=10.5)
+        ax.yaxis.set_major_locator(MaxNLocator(nbins=4))
+        ax.tick_params(axis="y", labelsize=10.5, width=2, length=4)
+        ax.tick_params(axis="x", width=2, length=4)
+        ax.set_title(f"{PANEL_LETTERS[f]}. {FEATURE_LABELS[f]}", fontsize=14, fontweight="bold",
+                     loc="left", pad=6)
+        if c == 0:
+            ax.set_ylabel("feature value", fontsize=12.5, fontweight="bold", labelpad=4)
+        if r == 2:
+            ax.set_xlabel("stroboscopic frequency (Hz)", fontsize=10, fontweight="bold", labelpad=4)
+        for side in ("top", "right"):
+            ax.spines[side].set_visible(False)
+        for side in ("left", "bottom"):
+            ax.spines[side].set_linewidth(2)
+    # shared legend (top right)
+    lg = fig.add_axes((0.56, 0.69, 0.43, 0.29))
+    lg.axis("off")
+    lg.set_xlim(0, 1); lg.set_ylim(0, 1)
+    lg.text(0.5, 0.93, "Shared Legend", ha="center", va="center", fontsize=16, fontweight="bold")
+    rowsy = [0.72, 0.52, 0.30, 0.09]
+    lg.scatter([0.10], [rowsy[0]], s=90, color="#000000", alpha=0.45, edgecolors="none")
+    lg.plot([0.02, 0.18], [rowsy[1]] * 2, color=COLOR_MEAN, linewidth=3.5)
+    lg.plot([0.10], [rowsy[1]], marker="o", markersize=10, markerfacecolor="white",
+            markeredgewidth=2.5, markeredgecolor=COLOR_MEAN)
+    lg.errorbar([0.10], [rowsy[2]], yerr=[[0.08], [0.08]], fmt="none", ecolor=COLOR_MEAN,
+                elinewidth=3, capsize=7, capthick=3)
+    lg.text(0.10, rowsy[3], "*", ha="center", va="center", fontsize=22, fontweight="bold")
+    for y, t in zip(rowsy, ["individual trial", "condition mean", "± 1 SD", "control condition (80 Hz)"]):
+        lg.text(0.24, y, t, ha="left", va="center", fontsize=15)
+    # grey dividers
+    grey = "#BBBBBB"
+    fig.add_artist(matplotlib.lines.Line2D([0.535, 0.535], [0.0, 1.0], color=grey, linewidth=2.5))
+    for y in (0.665, 0.345):
+        fig.add_artist(matplotlib.lines.Line2D([0.0, 1.0], [y, y], color=grey, linewidth=2.5))
+    fig.savefig(out_path, dpi=300, facecolor="white")
+    plt.close(fig)
 
 
 def run(trials: pd.DataFrame) -> dict:
