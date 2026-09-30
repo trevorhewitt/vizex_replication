@@ -1,0 +1,231 @@
+#,Location,Quantity,Thesis (old),Pre-exclusion reproduction,New,Status
+1,Title; 5.2.1.4; 5.3,trials analysed,"1,580","1,581","1,580",unchanged; thesis differs from pre-exclusion reproduction
+2,5.2.1.4,experimental trials,"1,186","1,187","1,186",unchanged; thesis differs from pre-exclusion reproduction
+3,5.2.1.4,control trials,98,98,98,unchanged
+4,5.2.1.4,validation trials,296,296,296,unchanged
+5,5.2.1; 5.3; Abstract,participants,99,99,99,unchanged
+6,"Table S5.3, detail level",n,296,296,296,unchanged
+7,"Table S5.3, detail level",b (slope),0.427464,0.427464,0.427464,unchanged
+8,"Table S5.3, detail level",SE,0.022199,0.022199,0.022199,unchanged
+9,"Table S5.3, detail level",z,19.26,19.26,19.26,unchanged
+10,"Table S5.3, detail level","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+11,"Table S5.3, detail level",random-intercept variance,0.019314,0.019314,0.019307,CHANGED
+12,"Table S5.3, detail level",residual variance,0.064122,0.064122,0.064096,CHANGED
+13,"Table S5.3, radial orientation",n,296,296,296,unchanged
+14,"Table S5.3, radial orientation",b (slope),0.753533,0.753533,0.753533,unchanged
+15,"Table S5.3, radial orientation",SE,0.014673,0.014673,0.014673,unchanged
+16,"Table S5.3, radial orientation",z,51.35,51.35,51.35,unchanged
+17,"Table S5.3, radial orientation","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+18,"Table S5.3, radial orientation",random-intercept variance,0.000000,0.000000,0.000000,unchanged
+19,"Table S5.3, radial orientation",residual variance,0.010990,0.010990,0.010990,unchanged
+20,"Table S5.3, tangential orientation",n,296,296,296,unchanged
+21,"Table S5.3, tangential orientation",b (slope),0.859217,0.859217,0.859217,unchanged
+22,"Table S5.3, tangential orientation",SE,0.017720,0.017720,0.017720,unchanged
+23,"Table S5.3, tangential orientation",z,48.49,48.49,48.49,unchanged
+24,"Table S5.3, tangential orientation","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+25,"Table S5.3, tangential orientation",random-intercept variance,0.000000,0.000000,0.000000,unchanged
+26,"Table S5.3, tangential orientation",residual variance,0.008976,0.008976,0.008974,CHANGED
+27,"Table S5.3, brightness",n,296,296,296,unchanged
+28,"Table S5.3, brightness",b (slope),0.931987,0.931987,0.931987,unchanged
+29,"Table S5.3, brightness",SE,0.037206,0.037206,0.037206,unchanged
+30,"Table S5.3, brightness",z,25.05,25.05,25.05,unchanged
+31,"Table S5.3, brightness","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+32,"Table S5.3, brightness",random-intercept variance,0.002225,0.002225,0.002225,unchanged
+33,"Table S5.3, brightness",residual variance,0.015500,0.015500,0.015500,unchanged
+34,"Table S5.3, contrast",n,296,296,296,unchanged
+35,"Table S5.3, contrast",b (slope),0.840334,0.840334,0.840334,unchanged
+36,"Table S5.3, contrast",SE,0.035239,0.035239,0.035239,unchanged
+37,"Table S5.3, contrast",z,23.85,23.85,23.85,unchanged
+38,"Table S5.3, contrast","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+39,"Table S5.3, contrast",random-intercept variance,0.000422,0.000422,0.000422,unchanged
+40,"Table S5.3, contrast",residual variance,0.003758,0.003758,0.003758,unchanged
+41,5.3.1; Fig 5.1 caption,smallest validation slope (detail level),0.43,0.43,0.43,unchanged
+42,5.3.1; Fig 5.1 caption,largest validation slope (brightness),0.93,0.93,0.93,unchanged
+43,5.3.1,average validation slope,0.76,0.76,0.76,unchanged
+44,5.3.1,all validation tests p < .001,p < .001 (all),holds (max Holm p = 1.26e-82),holds (max Holm p = 1.26e-82),holds
+45,5.4.1,validation ICC range (from Table S5.3),0 to 0.23,0 to 0.23,0 to 0.23,unchanged
+46,"Table S5.4, detail level",n,1284,1285,1284,unchanged; thesis differs from pre-exclusion reproduction
+47,"Table S5.4, detail level",Mean,0.16,0.16,0.16,unchanged
+48,"Table S5.4, detail level",Chi2 (Wald),130.2,130.2,129.7,CHANGED
+49,"Table S5.4, detail level",df,6,6,6,unchanged
+50,"Table S5.4, detail level","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+51,"Table S5.4, detail level",Trial SD,0.19,0.19,0.19,unchanged
+52,"Table S5.4, detail level",Trial_CV%,116.28%,116.28%,116.30%,CHANGED
+53,"Table S5.4, detail level",ICC,0.406,0.406,0.405,CHANGED
+54,"Table S5.4, detail level",random-intercept variance,0.023849,0.023849,0.023843,CHANGED
+55,"Table S5.4, detail level",residual variance,0.034949,0.034949,0.034963,CHANGED
+56,"Table S5.4, radial orientation",n,1284,1285,1284,unchanged; thesis differs from pre-exclusion reproduction
+57,"Table S5.4, radial orientation",Mean,0.40,0.40,0.41,CHANGED
+58,"Table S5.4, radial orientation",Chi2 (Wald),126.5,126.5,126.4,CHANGED
+59,"Table S5.4, radial orientation",df,6,6,6,unchanged
+60,"Table S5.4, radial orientation","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+61,"Table S5.4, radial orientation",Trial SD,0.24,0.24,0.24,unchanged
+62,"Table S5.4, radial orientation",Trial_CV%,59.37%,59.37%,59.38%,CHANGED
+63,"Table S5.4, radial orientation",ICC,0.158,0.158,0.158,unchanged
+64,"Table S5.4, radial orientation",random-intercept variance,0.010817,0.010817,0.010819,CHANGED
+65,"Table S5.4, radial orientation",residual variance,0.057817,0.057817,0.057854,CHANGED
+66,"Table S5.4, tangential orientation",n,1284,1285,1284,unchanged; thesis differs from pre-exclusion reproduction
+67,"Table S5.4, tangential orientation",Mean,0.44,0.44,0.44,unchanged
+68,"Table S5.4, tangential orientation",Chi2 (Wald),117.6,117.6,117.2,CHANGED
+69,"Table S5.4, tangential orientation",df,6,6,6,unchanged
+70,"Table S5.4, tangential orientation","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+71,"Table S5.4, tangential orientation",Trial SD,0.24,0.24,0.24,unchanged
+72,"Table S5.4, tangential orientation",Trial_CV%,55.56%,55.56%,55.59%,CHANGED
+73,"Table S5.4, tangential orientation",ICC,0.137,0.137,0.137,unchanged
+74,"Table S5.4, tangential orientation",random-intercept variance,0.009349,0.009349,0.009356,CHANGED
+75,"Table S5.4, tangential orientation",residual variance,0.059029,0.059029,0.059057,CHANGED
+76,"Table S5.4, brightness",n,1284,1285,1284,unchanged; thesis differs from pre-exclusion reproduction
+77,"Table S5.4, brightness",Mean,0.78,0.78,0.78,unchanged
+78,"Table S5.4, brightness",Chi2 (Wald),113.4,113.4,112.1,CHANGED
+79,"Table S5.4, brightness",df,6,6,6,unchanged
+80,"Table S5.4, brightness","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+81,"Table S5.4, brightness",Trial SD,0.15,0.15,0.15,unchanged
+82,"Table S5.4, brightness",Trial_CV%,19.61%,19.61%,19.52%,CHANGED
+83,"Table S5.4, brightness",ICC,0.294,0.294,0.294,unchanged
+84,"Table S5.4, brightness",random-intercept variance,0.009658,0.009658,0.009584,CHANGED
+85,"Table S5.4, brightness",residual variance,0.023215,0.023215,0.023022,CHANGED
+86,"Table S5.4, contrast",n,1284,1285,1284,unchanged; thesis differs from pre-exclusion reproduction
+87,"Table S5.4, contrast",Mean,0.14,0.14,0.14,unchanged
+88,"Table S5.4, contrast",Chi2 (Wald),125.1,125.1,125.7,CHANGED
+89,"Table S5.4, contrast",df,6,6,6,unchanged
+90,"Table S5.4, contrast","p (Holm, m = 5)",< .001,< .001,< .001,unchanged
+91,"Table S5.4, contrast",Trial SD,0.09,0.09,0.09,unchanged
+92,"Table S5.4, contrast",Trial_CV%,61.90%,61.90%,61.86%,CHANGED
+93,"Table S5.4, contrast",ICC,0.390,0.390,0.390,unchanged
+94,"Table S5.4, contrast",random-intercept variance,0.004674,0.004674,0.004673,CHANGED
+95,"Table S5.4, contrast",residual variance,0.007302,0.007302,0.007300,CHANGED
+96,5.3.2.2,smallest omnibus Wald chi2(6) ('> 113'),"> 113 (smallest 113.4, brightness)",holds (smallest = 113.4 (brightness)),DOES NOT HOLD (smallest = 112.1 (brightness)),CLAIM NO LONGER HOLDS (changed by the exclusion)
+97,5.3.2.2,all five omnibus p < .001,p < .001 for all five,holds (max Holm p = 4.0e-22),holds (max Holm p = 7.5e-22),holds
+98,5.3.2.2,detail level peaks at 15 Hz,peak at 15 Hz,"holds (means: 2.5: 0.079, 5: 0.152, 10: 0.177, 15: 0.249, 20: 0.207, 40: 0.156, 80: 0.051)","holds (means: 2.5: 0.078, 5: 0.152, 10: 0.177, 15: 0.249, 20: 0.207, 40: 0.156, 80: 0.051)",holds
+99,5.3.2.2,tangential orientation minimum at 15 Hz,minimum at 15 Hz,"holds (means: 2.5: 0.524, 5: 0.408, 10: 0.390, 15: 0.371, 20: 0.385, 40: 0.455, 80: 0.623)","holds (means: 2.5: 0.524, 5: 0.408, 10: 0.390, 15: 0.371, 20: 0.385, 40: 0.455, 80: 0.623)",holds
+100,5.3.2.2,tangential orientation mean at 80 Hz,0.62,0.62,0.62,unchanged
+101,5.3.2.2,80 Hz has the highest tangential mean,highest of any condition,holds,holds,holds
+102,5.3.2.2,"radial orientation 'similar, less pronounced' inverted U (peak location)",similar to detail (peak 15 Hz implied),"DOES NOT HOLD (means: 2.5: 0.382, 5: 0.474, 10: 0.446, 15: 0.447, 20: 0.438, 40: 0.352, 80: 0.184)","DOES NOT HOLD (means: 2.5: 0.383, 5: 0.474, 10: 0.446, 15: 0.447, 20: 0.438, 40: 0.352, 80: 0.184)",claim does not hold (pre-existing: same before the exclusion)
+103,5.3.2.2,brightness increases with frequency (strictly monotonic?),increased with frequency,"DOES NOT HOLD (means: 2.5: 0.729, 5: 0.736, 10: 0.768, 15: 0.766, 20: 0.788, 40: 0.812, 80: 0.902)","DOES NOT HOLD (means: 2.5: 0.733, 5: 0.736, 10: 0.768, 15: 0.766, 20: 0.788, 40: 0.812, 80: 0.902)",claim does not hold (pre-existing: same before the exclusion)
+104,5.3.2.2,contrast decreases with frequency (strictly monotonic?),decreased,"DOES NOT HOLD (means: 2.5: 0.158, 5: 0.161, 10: 0.145, 15: 0.154, 20: 0.140, 40: 0.105, 80: 0.070)","DOES NOT HOLD (means: 2.5: 0.158, 5: 0.161, 10: 0.145, 15: 0.154, 20: 0.140, 40: 0.105, 80: 0.070)",claim does not hold (pre-existing: same before the exclusion)
+105,5.3.2.2,"above 15 Hz: brighter, less detail, less radial, lower contrast (15>20>40>80)",monotonic from 15 to 80 Hz,holds,holds,holds
+106,5.3.2.2 follow-up,10 vs 15 Hz detail: b,0.071,0.071,0.071,unchanged
+107,5.3.2.2 follow-up,10 vs 15 Hz detail: SE,0.021,0.021,0.021,unchanged
+108,5.3.2.2 follow-up,10 vs 15 Hz detail: z,3.39,3.39,3.39,unchanged
+109,5.3.2.2 follow-up,"10 vs 15 Hz detail: p (single test, uncorrected)",< .001,< .001,< .001,unchanged
+110,5.3.2.2 follow-up,10 vs 15 Hz detail: n trials in model (not printed),(395 = 198 + 197),395,395,info
+111,5.3.2.3,detail residual SD,0.19,0.19,0.19,unchanged
+112,5.3.2.3,detail grand mean,0.16,0.16,0.16,unchanged
+113,5.3.2.3,detail residual SD exceeds grand mean,0.19 > 0.16,holds,holds,holds
+114,5.3.2.3,brightness residual SD / mean ('one-fifth'),19.61%,19.61%,19.52%,CHANGED
+115,5.3.2.3,contrast residual SD / mean ('about three-fifths'),61.90%,61.90%,61.86%,CHANGED
+116,5.3.2.3,ICC radial,0.16,0.16,0.16,unchanged
+117,5.3.2.3,ICC tangential,0.14,0.14,0.14,unchanged
+118,5.3.2.3,ICC detail level,0.41,0.41,0.41,unchanged
+119,5.3.2.3,ICC contrast,0.39,0.39,0.39,unchanged
+120,5.3.2.3,ICC brightness,0.29,0.29,0.29,unchanged
+121,5.4.1,ICC range (% of unexplained variance),14% to 41%,14% to 41%,14% to 41%,unchanged
+122,6.1.4.3,ICC up to,0.41,0.41,0.41,unchanged
+123,5.3.2.1,2.5 Hz: geometric content present,61%,61%,61%,unchanged
+124,5.3.2.1,2.5 Hz: Null,39%,39%,39%,unchanged
+125,5.3.2.1,5-40 Hz: geometric content present,96%,96%,96%,unchanged
+126,5.3.2.1; 5.3.2.2,80 Hz: Null,82%,82%,82%,unchanged
+127,5.3.2.1,chi-square (18 df),548.76,548.76,548.76,unchanged
+128,5.3.2.1,chi-square df,18,18,18,unchanged
+129,5.3.2.1,chi-square p,< .001,< .001,< .001,unchanged
+130,5.3.2.1,15 Hz: Null (minimum),0.5%,0.5%,0.5%,unchanged
+131,5.3.2.1,semantic content (Semantic + Mixed) in all SLS trials,just over 1%,holds (1.25%),holds (1.25%),holds
+132,5.3.2.1,labelled SLS trials (not printed; Figure 5.3A),"(1,284)","1,284","1,284",info
+133,5.3.2.1,"IRR AC1 0.901 / 0.821, kappa 0.735 / 0.577",not recomputed,unaffected: P358 trial 8 was never classified or rated,unaffected: P358 trial 8 was never classified or rated,info
+134,S5.4 text; Table S5.2 caption,SLS trials in trial-order models,"1,281","1,282","1,281",unchanged; thesis differs from pre-exclusion reproduction
+135,S5.4 text; Table S5.2 caption,validation trials in trial-order models,296,296,296,unchanged
+136,"Table S5.2, Exp. detail level",b per trial (SE),−0.0193 (0.0046),-0.0193 (0.0046),-0.0193 (0.0046),unchanged
+137,"Table S5.2, Exp. detail level",chi2(1) trial,17.55,17.55,17.54,CHANGED
+138,"Table S5.2, Exp. detail level","p trial (Holm, m = 10)",< .001,< .001,< .001,unchanged
+139,"Table S5.2, Exp. detail level",drift across experiment (SD),−0.289,-0.289,-0.289,unchanged
+140,"Table S5.2, Exp. detail level",trial order (% variance),0.79,0.79,0.79,unchanged
+141,"Table S5.2, Exp. detail level",session chi2(1),0.06,0.06,0.06,unchanged
+142,"Table S5.2, Exp. detail level","session p (Holm, m = 10)",1.000,1.000,1.000,unchanged
+143,"Table S5.2, Exp. detail level",session (% variance),0.66,0.66,0.67,CHANGED
+144,"Table S5.2, Exp. radial",b per trial (SE),+0.0090 (0.0054),+0.0090 (0.0054),+0.0090 (0.0054),unchanged
+145,"Table S5.2, Exp. radial",chi2(1) trial,2.77,2.77,2.76,CHANGED
+146,"Table S5.2, Exp. radial","p trial (Holm, m = 10)",.632,.632,.615,CHANGED
+147,"Table S5.2, Exp. radial",drift across experiment (SD),+0.135,+0.135,+0.135,unchanged
+148,"Table S5.2, Exp. radial",trial order (% variance),0.17,0.17,0.17,unchanged
+149,"Table S5.2, Exp. radial",session chi2(1),0.00,0.00,0.00,unchanged
+150,"Table S5.2, Exp. radial","session p (Holm, m = 10)",1.000,1.000,1.000,unchanged
+151,"Table S5.2, Exp. radial",session (% variance),0.00,0.00,0.00,unchanged
+152,"Table S5.2, Exp. tangential",b per trial (SE),−0.0152 (0.0055),-0.0152 (0.0055),-0.0152 (0.0055),unchanged
+153,"Table S5.2, Exp. tangential",chi2(1) trial,7.71,7.71,7.70,CHANGED
+154,"Table S5.2, Exp. tangential","p trial (Holm, m = 10)",.044,.044,.044,unchanged
+155,"Table S5.2, Exp. tangential",drift across experiment (SD),−0.228,-0.228,-0.228,unchanged
+156,"Table S5.2, Exp. tangential",trial order (% variance),0.49,0.49,0.49,unchanged
+157,"Table S5.2, Exp. tangential",session chi2(1),0.00,0.00,0.00,unchanged
+158,"Table S5.2, Exp. tangential","session p (Holm, m = 10)",1.000,1.000,1.000,unchanged
+159,"Table S5.2, Exp. tangential",session (% variance),0.00,0.00,0.00,unchanged
+160,"Table S5.2, Exp. brightness",b per trial (SE),−0.0085 (0.0050),-0.0085 (0.0050),-0.0085 (0.0050),unchanged
+161,"Table S5.2, Exp. brightness",chi2(1) trial,2.87,2.87,2.91,CHANGED
+162,"Table S5.2, Exp. brightness","p trial (Holm, m = 10)",.632,.632,.615,CHANGED
+163,"Table S5.2, Exp. brightness",drift across experiment (SD),−0.127,-0.127,-0.128,CHANGED
+164,"Table S5.2, Exp. brightness",trial order (% variance),0.15,0.15,0.16,CHANGED
+165,"Table S5.2, Exp. brightness",session chi2(1),0.02,0.02,0.00,CHANGED
+166,"Table S5.2, Exp. brightness","session p (Holm, m = 10)",1.000,1.000,1.000,unchanged
+167,"Table S5.2, Exp. brightness",session (% variance),0.29,0.29,0.13,CHANGED
+168,"Table S5.2, Exp. contrast",b per trial (SE),−0.0161 (0.0046),-0.0161 (0.0046),-0.0161 (0.0046),unchanged
+169,"Table S5.2, Exp. contrast",chi2(1) trial,12.04,12.04,12.05,CHANGED
+170,"Table S5.2, Exp. contrast","p trial (Holm, m = 10)",.005,.005,.005,unchanged
+171,"Table S5.2, Exp. contrast",drift across experiment (SD),−0.242,-0.242,-0.242,unchanged
+172,"Table S5.2, Exp. contrast",trial order (% variance),0.56,0.56,0.56,unchanged
+173,"Table S5.2, Exp. contrast",session chi2(1),1.13,1.13,1.19,CHANGED
+174,"Table S5.2, Exp. contrast","session p (Holm, m = 10)",.717,.717,.686,CHANGED
+175,"Table S5.2, Exp. contrast",session (% variance),2.59,2.59,2.66,CHANGED
+176,"Table S5.2, Val. detail level",b per trial (SE),+0.0084 (0.0093),+0.0084 (0.0093),+0.0084 (0.0093),unchanged
+177,"Table S5.2, Val. detail level",chi2(1) trial,0.82,0.82,0.82,unchanged
+178,"Table S5.2, Val. detail level","p trial (Holm, m = 10)",1.000,1.000,1.000,unchanged
+179,"Table S5.2, Val. detail level",drift across experiment (SD),+0.126,+0.126,+0.126,unchanged
+180,"Table S5.2, Val. detail level",trial order (% variance),0.14,0.14,0.14,unchanged
+181,"Table S5.2, Val. detail level",session chi2(1),2.16,2.16,2.16,unchanged
+182,"Table S5.2, Val. detail level","session p (Holm, m = 10)",.637,.637,.637,unchanged
+183,"Table S5.2, Val. detail level",session (% variance),3.01,3.01,3.01,unchanged
+184,"Table S5.2, Val. radial",b per trial (SE),−0.0019 (–),-0.0019 (-),-0.0019 (-),unchanged
+185,"Table S5.2, Val. radial",chi2(1) trial,0.22,0.22,0.22,unchanged
+186,"Table S5.2, Val. radial","p trial (Holm, m = 10)",1.000,1.000,1.000,unchanged
+187,"Table S5.2, Val. radial",drift across experiment (SD),−0.029,-0.029,-0.029,unchanged
+188,"Table S5.2, Val. radial",trial order (% variance),0.01,0.01,0.01,unchanged
+189,"Table S5.2, Val. radial",session chi2(1),0.00,0.00,0.00,unchanged
+190,"Table S5.2, Val. radial","session p (Holm, m = 10)",1.000,1.000,1.000,unchanged
+191,"Table S5.2, Val. radial",session (% variance),0.00,0.00,0.00,unchanged
+192,"Table S5.2, Val. tangential",b per trial (SE),+0.0027 (0.0046),+0.0027 (0.0046),+0.0027 (0.0046),unchanged
+193,"Table S5.2, Val. tangential",chi2(1) trial,0.40,0.40,0.40,unchanged
+194,"Table S5.2, Val. tangential","p trial (Holm, m = 10)",1.000,1.000,1.000,unchanged
+195,"Table S5.2, Val. tangential",drift across experiment (SD),+0.041,+0.041,+0.041,unchanged
+196,"Table S5.2, Val. tangential",trial order (% variance),0.02,0.02,0.02,unchanged
+197,"Table S5.2, Val. tangential",session chi2(1),0.00,0.00,0.00,unchanged
+198,"Table S5.2, Val. tangential","session p (Holm, m = 10)",1.000,1.000,1.000,unchanged
+199,"Table S5.2, Val. tangential",session (% variance),0.00,0.00,0.00,unchanged
+200,"Table S5.2, Val. brightness",b per trial (SE),−0.0117 (0.0073),-0.0117 (0.0073),-0.0117 (0.0073),unchanged
+201,"Table S5.2, Val. brightness",chi2(1) trial,2.56,2.56,2.56,unchanged
+202,"Table S5.2, Val. brightness","p trial (Holm, m = 10)",.877,.877,.877,unchanged
+203,"Table S5.2, Val. brightness",drift across experiment (SD),−0.175,-0.175,-0.175,unchanged
+204,"Table S5.2, Val. brightness",trial order (% variance),0.28,0.28,0.28,unchanged
+205,"Table S5.2, Val. brightness",session chi2(1),0.04,0.04,0.04,unchanged
+206,"Table S5.2, Val. brightness","session p (Holm, m = 10)",1.000,1.000,1.000,unchanged
+207,"Table S5.2, Val. brightness",session (% variance),0.17,0.17,0.17,unchanged
+208,"Table S5.2, Val. contrast",b per trial (SE),−0.0168 (0.0077),-0.0168 (0.0077),-0.0168 (0.0077),unchanged
+209,"Table S5.2, Val. contrast",chi2(1) trial,5.15,5.15,5.15,unchanged
+210,"Table S5.2, Val. contrast","p trial (Holm, m = 10)",.232,.232,.232,unchanged
+211,"Table S5.2, Val. contrast",drift across experiment (SD),−0.252,-0.252,-0.252,unchanged
+212,"Table S5.2, Val. contrast",trial order (% variance),0.59,0.59,0.59,unchanged
+213,"Table S5.2, Val. contrast",session chi2(1),0.00,0.00,0.00,unchanged
+214,"Table S5.2, Val. contrast","session p (Holm, m = 10)",1.000,1.000,1.000,unchanged
+215,"Table S5.2, Val. contrast",session (% variance),0.00,0.00,0.00,unchanged
+216,S5.4 text,detail drift (2 dp),−0.29 SD,-0.29 SD,-0.29 SD,unchanged
+217,S5.4 text,tangential drift,−0.23 SD,-0.23 SD,-0.23 SD,unchanged
+218,S5.4 text,contrast drift,−0.24 SD,-0.24 SD,-0.24 SD,unchanged
+219,S5.4 text,radial and brightness trial p ('both p = .632'),both .632,both .632,both .615,CHANGED
+220,S5.4 text,radial and brightness drift ('< 0.14 SD'),< 0.14 SD,holds (max |drift| = 0.135),holds (max |drift| = 0.135),holds
+221,S5.4 text; 5.4.2,significant trial-position effects in Exp. data (Holm < .05),"3 (detail level, tangential, contrast)","3 (detail level, tangential, contrast)","3 (detail level, tangential, contrast)",unchanged
+222,S5.4 text,validation contrast b,−0.0168,-0.0168,-0.0168,unchanged
+223,S5.4 text,validation contrast drift,−0.25 SD,-0.25 SD,-0.25 SD,unchanged
+224,S5.4 text,validation: all trial p > .23,all p > .23,holds (min = 0.232),holds (min = 0.232),holds
+225,S5.4 text,validation: drift < 0.26 SD,< 0.26 SD,holds (max |drift| = 0.252),holds (max |drift| = 0.252),holds
+226,S5.4 text,session intercept significant for no feature,none significant,holds (min Holm p = 0.637),holds (min Holm p = 0.637),holds
+227,S5.4 text; 5.4.2,trial position % variance ('under 0.8%'; '< 1%'),under 0.8%,holds (max 0.79%),holds (max 0.79%),holds
+228,S5.4 text,"session % variance ('at most 3.0%', 1 dp)",at most 3.0%,holds (max 3.01%),holds (max 3.01%),holds
+229,S5.4 text,max change in frequency coefficients,0.021 SD,0.021 SD,0.021 SD,unchanged
+230,S5.4 text,min correlation of frequency coefficients,r ≥ 0.999,holds (r = 0.9992),holds (r = 0.9992),holds
