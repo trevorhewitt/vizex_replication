@@ -1,6 +1,6 @@
 Feature	Mean absolute error (SD)	Largest difference between trials (SD)	chi2(14)	p
-detail level	1.216	1.852	43.04	< .001
+detail level	1.215	1.851	43.04	< .001
 radial orientation	0.308	0.312	11.49	1.000
-tangential orientation	0.253	0.165	7.53	1.000
-brightness	0.421	0.426	21.26	.381
-contrast	0.445	0.367	11.08	1.000
+tangential orientation	0.254	0.165	7.53	1.000
+brightness	0.422	0.427	21.26	.381
+contrast	0.446	0.367	11.08	1.000
