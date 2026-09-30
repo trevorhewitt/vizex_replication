@@ -1,0 +1,2 @@
+participant_code,trialn,reason,png_filename
+P358,8,"technical error: spurious re-save (same saveTime 2510241430 as trial 9); the scheduled trial 8 (2.5 Hz) was lost at recording and not recovered",saveTime_2510241430__sessionTime_202510241300__participant_P358__trialN_8__trialT_1__fileType_cropped.png
