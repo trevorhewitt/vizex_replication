@@ -5,10 +5,10 @@ Thesis Chapter 5 numbers (HEWITT_THESIS_FULL_9.docx) against the rerun with P358
 ## Summary
 
 * Items compared: 230
-* Unchanged at the precision printed in the thesis: 157
-* Changed (thesis text/table needs an edit): 44
+* Unchanged at the precision printed in the thesis: 156
+* Changed (thesis text/table needs an edit): 45
 * **Significance verdicts or claims changed by the exclusion: 1**
-* Pre-existing discrepancies (thesis value not reproduced even before the exclusion, or claim already false): 11
+* Pre-existing discrepancies (thesis value not reproduced even before the exclusion, or claim already false): 12
 
 Status key: `unchanged` = new value prints exactly as in the thesis; `CHANGED` = different at the printed precision, same significance verdict; `SIGNIFICANCE VERDICT CHANGED` = crosses p = .05; `CLAIM NO LONGER HOLDS` = a verbal claim that was true before the exclusion is now false; `thesis differs from pre-exclusion reproduction` = the thesis value was not what the code produced on the old data either (a pre-existing reporting issue, not caused by the exclusion).
 
@@ -65,6 +65,7 @@ Status key: `unchanged` = new value prints exactly as in the thesis; `CHANGED` =
 | 173 | Table S5.2, Exp. contrast | session chi2(1) | 1.13 | 1.13 | 1.19 | CHANGED |
 | 174 | Table S5.2, Exp. contrast | session p (Holm, m = 10) | .717 | .717 | .686 | CHANGED |
 | 175 | Table S5.2, Exp. contrast | session (% variance) | 2.59 | 2.59 | 2.66 | CHANGED |
+| 184 | Table S5.2, Val. radial | b per trial (SE) | −0.0019 (–) | -0.0019 (0.0041) | -0.0019 (0.0041) | CHANGED; thesis differs from pre-exclusion reproduction |
 | 219 | S5.4 text | radial and brightness trial p ('both p = .632') | both .632 | both .632 | both .615 | CHANGED |
 
 ## Pre-existing discrepancies
@@ -82,6 +83,7 @@ Status key: `unchanged` = new value prints exactly as in the thesis; `CHANGED` =
 | 103 | 5.3.2.2 | brightness increases with frequency (strictly monotonic?) | increased with frequency | DOES NOT HOLD (means: 2.5: 0.729, 5: 0.736, 10: 0.768, 15: 0.766, 20: 0.788, 40: 0.812, 80: 0.902) | DOES NOT HOLD (means: 2.5: 0.733, 5: 0.736, 10: 0.768, 15: 0.766, 20: 0.788, 40: 0.812, 80: 0.902) | claim does not hold (pre-existing: same before the exclusion) |
 | 104 | 5.3.2.2 | contrast decreases with frequency (strictly monotonic?) | decreased | DOES NOT HOLD (means: 2.5: 0.158, 5: 0.161, 10: 0.145, 15: 0.154, 20: 0.140, 40: 0.105, 80: 0.070) | DOES NOT HOLD (means: 2.5: 0.158, 5: 0.161, 10: 0.145, 15: 0.154, 20: 0.140, 40: 0.105, 80: 0.070) | claim does not hold (pre-existing: same before the exclusion) |
 | 134 | S5.4 text; Table S5.2 caption | SLS trials in trial-order models | 1,281 | 1,282 | 1,281 | unchanged; thesis differs from pre-exclusion reproduction |
+| 184 | Table S5.2, Val. radial | b per trial (SE) | −0.0019 (–) | -0.0019 (0.0041) | -0.0019 (0.0041) | CHANGED; thesis differs from pre-exclusion reproduction |
 
 ## Full comparison
 
@@ -270,7 +272,7 @@ Status key: `unchanged` = new value prints exactly as in the thesis; `CHANGED` =
 | 181 | Table S5.2, Val. detail level | session chi2(1) | 2.16 | 2.16 | 2.16 | unchanged |
 | 182 | Table S5.2, Val. detail level | session p (Holm, m = 10) | .637 | .637 | .637 | unchanged |
 | 183 | Table S5.2, Val. detail level | session (% variance) | 3.01 | 3.01 | 3.01 | unchanged |
-| 184 | Table S5.2, Val. radial | b per trial (SE) | −0.0019 (–) | -0.0019 (-) | -0.0019 (-) | unchanged |
+| 184 | Table S5.2, Val. radial | b per trial (SE) | −0.0019 (–) | -0.0019 (0.0041) | -0.0019 (0.0041) | CHANGED; thesis differs from pre-exclusion reproduction |
 | 185 | Table S5.2, Val. radial | chi2(1) trial | 0.22 | 0.22 | 0.22 | unchanged |
 | 186 | Table S5.2, Val. radial | p trial (Holm, m = 10) | 1.000 | 1.000 | 1.000 | unchanged |
 | 187 | Table S5.2, Val. radial | drift across experiment (SD) | −0.029 | -0.029 | -0.029 | unchanged |

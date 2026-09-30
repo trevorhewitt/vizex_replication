@@ -113,6 +113,24 @@ def fit_best(formula, data, groups, vc_formula=None):
     return model, best
 
 
+def boundary_se(formula, data, res, term):
+    """SE of `term` from sigma^2 (X' V^-1 X)^-1, V built from the fitted session and
+    participant-within-session variance components."""
+    import patsy
+    _, X = patsy.dmatrices(formula, data, return_type="dataframe")
+    s2 = float(res.scale)
+    ts = float(np.asarray(res.cov_re)[0, 0])
+    tp = float(np.atleast_1d(res.vcomp)[0])
+    info = np.zeros((X.shape[1], X.shape[1]))
+    for _, idx in data.groupby("session").groups.items():
+        Xs = X.loc[idx].to_numpy()
+        p = data.loc[idx, "participant_code"].to_numpy()
+        V = s2 * np.eye(len(idx)) + ts + tp * (p[:, None] == p[None, :])
+        info += Xs.T @ np.linalg.solve(V, Xs)
+    cov = np.linalg.inv(info)
+    return float(np.sqrt(cov[list(X.columns).index(term), list(X.columns).index(term)]))
+
+
 def lrt(res_full, res_reduced, df, boundary=False):
     stat = max(2 * (res_full.llf - res_reduced.llf), 0.0)
     p = chi2.sf(stat, df)
@@ -164,7 +182,15 @@ def run_family(data, template, main_prefix, label, trial_span):
             se = float(res.bse_fe["trial_c"])
         except Exception:  # noqa: BLE001
             se = np.nan
-        rows.append({"Trials": label, "Feature": name, "n": len(data), "b": b, "se": se,
+        se_source = "hessian"
+        if not np.isfinite(se):
+            # At the boundary (session and participant variances both estimated at 0) the
+            # full Hessian is not positive definite and statsmodels returns no SE. Use the
+            # fixed-effects covariance sigma^2 (X'V^-1 X)^-1 at the fitted variance
+            # components instead (equals OLS with the ML sigma^2 when both are 0).
+            se = boundary_se(formula, data, res, "trial_c")
+            se_source = "gls_boundary"
+        rows.append({"Trials": label, "Feature": name, "n": len(data), "b": b, "se": se, "se_source": se_source,
                      "chi2_trial": chi_t, "p_trial": p_t, "drift": b * trial_span,
                      "chi2_session": chi_s, "p_session": p_s,
                      **{f"pct_{k}": 100 * x / total for k, x in v.items()}})
@@ -197,8 +223,10 @@ def paper_table(order_res: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({
         "Trials": order_res["Trials"].map({"Experimental": "Exp.", "Validation": "Val."}),
         "Feature": order_res["Feature"],
-        "b per trial (SE)": [f"{b:+.4f} (-)" if not np.isfinite(se) else f"{b:+.4f} ({se:.4f})"
-                             for b, se in zip(order_res["b"], order_res["se"])],
+        # \u2020: SE from the fixed-effects covariance at the boundary (see boundary_se)
+        "b per trial (SE)": [f"{b:+.4f} (-)" if not np.isfinite(se)
+                             else f"{b:+.4f} ({se:.4f})" + ("\u2020" if src == "gls_boundary" else "")
+                             for b, se, src in zip(order_res["b"], order_res["se"], order_res["se_source"])],
         "chi2(1)": order_res["chi2_trial"].map("{:.2f}".format),
         "p": [_fmt_p(v) for v in order_res["p_trial_holm"]],
         "Drift across experiment (SD)": order_res["drift"].map("{:+.3f}".format),

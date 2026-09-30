@@ -182,7 +182,7 @@
 181,"Table S5.2, Val. detail level",session chi2(1),2.16,2.16,2.16,unchanged
 182,"Table S5.2, Val. detail level","session p (Holm, m = 10)",.637,.637,.637,unchanged
 183,"Table S5.2, Val. detail level",session (% variance),3.01,3.01,3.01,unchanged
-184,"Table S5.2, Val. radial",b per trial (SE),−0.0019 (–),-0.0019 (-),-0.0019 (-),unchanged
+184,"Table S5.2, Val. radial",b per trial (SE),−0.0019 (–),-0.0019 (0.0041),-0.0019 (0.0041),CHANGED; thesis differs from pre-exclusion reproduction
 185,"Table S5.2, Val. radial",chi2(1) trial,0.22,0.22,0.22,unchanged
 186,"Table S5.2, Val. radial","p trial (Holm, m = 10)",1.000,1.000,1.000,unchanged
 187,"Table S5.2, Val. radial",drift across experiment (SD),−0.029,-0.029,-0.029,unchanged
