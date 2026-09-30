@@ -1,0 +1,11 @@
+Trials	Feature	b per trial (SE)	chi2(1)	p	Drift across experiment (SD)	Trial order (% variance)	Session chi2(1)	Session p	Session (% variance)
+Experimental	detail level	-0.0069 (0.0034)	4.16	.331	-0.692	0.20	0.02	1.000	0.39
+Experimental	radial orientation	+0.0014 (0.0040)	0.13	1.000	+0.144	0.01	0.00	1.000	0.00
+Experimental	tangential orientation	-0.0035 (0.0040)	0.76	1.000	-0.350	0.05	0.00	1.000	0.00
+Experimental	brightness	-0.0082 (0.0037)	4.89	.243	-0.815	0.27	0.02	1.000	0.24
+Experimental	contrast	-0.0103 (0.0034)	9.01	.027	-1.031	0.43	1.07	1.000	2.50
+Validation	detail level	+0.0084 (0.0093)	0.82	1.000	+0.842	0.14	2.12	.653	2.99
+Validation	radial orientation	-0.0021 (-)	0.27	1.000	-0.213	0.01	0.00	1.000	0.00
+Validation	tangential orientation	+0.0031 (0.0046)	0.51	1.000	+0.306	0.02	0.00	1.000	0.00
+Validation	brightness	-0.0123 (0.0073)	2.81	.748	-1.226	0.31	0.02	1.000	0.13
+Validation	contrast	-0.0173 (0.0073)	5.49	.191	-1.733	0.62	0.00	1.000	0.00

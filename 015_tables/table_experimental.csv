@@ -1,6 +1,6 @@
-Feature,Mean,Chi2,df,p_holm,Trial_SD,Trial_CV%,ICC
-detail level,0.16,130.2,6,< .001,0.19,116.28%,0.406
-radial orientation,0.40,126.5,6,< .001,0.24,59.37%,0.158
-tangential orientation,0.44,117.6,6,< .001,0.24,55.56%,0.137
-brightness,0.78,113.4,6,< .001,0.15,19.61%,0.294
-contrast,0.14,125.1,6,< .001,0.09,61.90%,0.390
+Feature,n,Mean,Chi2,df,p (Holm),Trial SD,Trial_CV%,ICC,Random-intercept variance,Residual variance
+detail level,1285,0.16,130.2,6,< .001,0.19,116.28%,0.406,0.023849,0.034949
+radial orientation,1285,0.40,126.5,6,< .001,0.24,59.37%,0.158,0.010817,0.057817
+tangential orientation,1285,0.44,117.6,6,< .001,0.24,55.56%,0.137,0.009349,0.059029
+brightness,1285,0.78,113.4,6,< .001,0.15,19.61%,0.294,0.009658,0.023215
+contrast,1285,0.14,125.1,6,< .001,0.09,61.90%,0.390,0.004674,0.007302
