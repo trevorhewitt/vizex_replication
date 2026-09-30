@@ -4,8 +4,8 @@ Experimental	radial orientation	+0.0090 (0.0054)	2.77	.632	+0.135	0.17	0.00	1.00
 Experimental	tangential orientation	-0.0152 (0.0055)	7.71	.044	-0.228	0.49	0.00	1.000	0.00
 Experimental	brightness	-0.0085 (0.0050)	2.87	.632	-0.127	0.15	0.02	1.000	0.29
 Experimental	contrast	-0.0161 (0.0046)	12.04	.005	-0.242	0.56	1.13	.717	2.59
-Validation	detail level	+0.0084 (0.0093)	0.82	1.000	+0.126	0.14	2.12	.653	2.99
-Validation	radial orientation	-0.0021 (-)	0.27	1.000	-0.032	0.01	0.00	1.000	0.00
-Validation	tangential orientation	+0.0031 (0.0046)	0.51	1.000	+0.046	0.02	0.00	1.000	0.00
-Validation	brightness	-0.0123 (0.0073)	2.81	.748	-0.184	0.31	0.02	1.000	0.13
-Validation	contrast	-0.0173 (0.0073)	5.49	.191	-0.260	0.62	0.00	1.000	0.00
+Validation	detail level	+0.0084 (0.0093)	0.82	1.000	+0.126	0.14	2.16	.637	3.01
+Validation	radial orientation	-0.0019 (-)	0.22	1.000	-0.029	0.01	0.00	1.000	0.00
+Validation	tangential orientation	+0.0027 (0.0046)	0.40	1.000	+0.041	0.02	0.00	1.000	0.00
+Validation	brightness	-0.0117 (0.0073)	2.56	.877	-0.175	0.28	0.04	1.000	0.17
+Validation	contrast	-0.0168 (0.0077)	5.15	.232	-0.252	0.59	0.00	1.000	0.00
